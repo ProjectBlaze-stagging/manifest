@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="github"
+           fetch="https://github.com/" />
+
+  <remote  name="gitlab"
+           fetch="https://gitlab.com/" />
+
+  <remote  name="blaze-stagging"
+           fetch="https://github.com/ProjectBlaze-stagging"
+           revision="14" />
+
+  <project path="android" name="manifest" remote="blaze-stagging" revision="14" />
+
+  <!-- Build -->
+  <project path="build/make" name="build" groups="pdk" remote="blaze-stagging" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <project path="build/soong" name="build_soong" groups="pdk,tradefed" remote="blaze-stagging" >
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+
+  <!-- Device -->
+  <project path="device/lineage/sepolicy" name="device_blaze_sepolicy" remote="blaze-stagging" />
+  <project path="device/qcom/sepolicy" name="device_qcom_sepolicy" groups="qcom,qssi" remote="blaze-stagging" />
+  <project path="device/qcom/sepolicy-legacy-um" name="device_qcom_sepolicy" groups="qcom,sdm660" remote="blaze-stagging" revision="14-legacy-um" />
+  <project path="device/qcom/sepolicy_vndr/legacy-um" name="device_qcom_sepolicy_vndr" groups="qcom,lahaina" remote="blaze-stagging" revision="14-legacy-um" />
+  <project path="device/qcom/sepolicy_vndr/sm8450" name="device_qcom_sepolicy_vndr" groups="qcom,waipio-vendor" remote="blaze-stagging" revision="14-caf-sm8450" />
+  <project path="device/qcom/sepolicy_vndr/sm8550" name="device_qcom_sepolicy_vndr" groups="qcom,kailua-vendor" remote="blaze-stagging" revision="14-caf-sm8550" />
+
+  <!-- Frameworks -->
+  <project path="frameworks/native" name="frameworks_native" remote="blaze-stagging" />
+
+  <!-- System repos -->
+  <project path="system/sepolicy" name="system_sepolicy" remote="blaze-stagging" />
+
+</manifest>
