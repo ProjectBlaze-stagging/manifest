@@ -5,6 +5,10 @@
            fetch="https://github.com/ProjectBlaze"
            revision="refs/heads/14" />
 
+  <remote name="blaze-stag"
+          fetch="https://github.com/ProjectBlaze-stagging"
+          revision="qpr2" />
+
   <remote  name="blaze-gitlab"
            fetch="https://gitlab.com/projectblaze"
            revision="refs/heads/14" />
@@ -14,14 +18,14 @@
            revision="refs/heads/14" />
 
   <!-- Rootdir -->
-  <project path="bionic" name="bionic" remote="blaze" />
-  <project path="art" name="art" remote="blaze" />
+  <project path="bionic" name="bionic" remote="blaze-stag" />
+  <project path="art" name="art" remote="blaze-stag" />
 
   <!-- Bootable -->
-  <project path="bootable/recovery" name="bootable_recovery" remote="blaze" />
+  <!--<project path="bootable/recovery" name="bootable_recovery" remote="blaze" />-->
 
   <!-- Build -->
-  <project path="build/make" name="build" remote="blaze">
+  <project path="build/make" name="build" remote="blaze-stag">
     <copyfile src="core/root.mk" dest="Makefile" />
     <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
     <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
@@ -30,18 +34,18 @@
     <linkfile src="target" dest="build/target" />
     <linkfile src="tools" dest="build/tools" />
   </project>
-  <project path="build/soong" name="build_soong" remote="blaze">
+  <project path="build/soong" name="build_soong" remote="blaze-stag">
     <linkfile src="root.bp" dest="Android.bp" />
     <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
   </project>
 
   <!-- Frameworks -->
-  <project path="frameworks/av" name="frameworks_av" remote="blaze" />
+  <!--<project path="frameworks/av" name="frameworks_av" remote="blaze" />
   <project path="frameworks/base" name="frameworks_base" remote="blaze" />
-  <project path="frameworks/native" name="frameworks_native" remote="blaze" />
+  <project path="frameworks/native" name="frameworks_native" remote="blaze" />-->
 
   <!-- Packages -->
-  <project path="packages/apps/BlazeHouse" name="packages_apps_BlazeHouse" remote="blaze" />
+  <!--<project path="packages/apps/BlazeHouse" name="packages_apps_BlazeHouse" remote="blaze" />
   <project path="packages/apps/Settings" name="packages_apps_Settings" remote="blaze" />
   <project path="packages/apps/BlazeWallpaperStub" name="packages_apps_BlazeWallpaperStub" remote="blaze" />
   <project path="packages/apps/GameSpace" name="packages_apps_GameSpace" remote="blaze" />
@@ -51,13 +55,13 @@
   <project path="packages/modules/Bluetooth" name="packages_modules_Bluetooth" remote="blaze" />
   <project path="packages/overlays/Themes" name="packages_overlays_Themes" remote="blaze" />
   <project path="packages/services/Telecomm" name="packages_services_Telecomm" remote="blaze" />
-  <project path="packages/modules/Connectivity" name="packages_modules_Connectivity" remote="blaze-gitea"/>
+  <project path="packages/modules/Connectivity" name="packages_modules_Connectivity" remote="blaze-gitea"/>-->
   
   <!-- System -->
-  <project path="system/core" name="system_core" remote="blaze-gitea" />
+  <!--<project path="system/core" name="system_core" remote="blaze-gitea" />
   <project path="system/sepolicy" name="system_sepolicy" remote="blaze" />
   <project path="system/vold" name="system_vold" remote="blaze" />
-  <project path="system/update_engine" name="system_update_engine" remote="blaze" />
+  <project path="system/update_engine" name="system_update_engine" remote="blaze" />-->
 
   <!-- Begin Extras -->
 
